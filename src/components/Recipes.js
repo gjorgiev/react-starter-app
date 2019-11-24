@@ -6,17 +6,18 @@ const Recipes = props => (
         { props.recipes.map((recipe) => {
           return (
               <div key={recipe.id} className="col-md-4" style={{marginBottom: "2rem"}}>
-                  <div className="recipe__box">
+                  <div className="recipes__box">
                       <img 
                         className="recipe__box-img" 
                         src={props.baseUri + recipe.image} 
                         alt={recipe.title}/>
                         <div className="recipe__text">
-                            <h5>{recipe.title}</h5>
+                            <h5 className="recipes__title">{recipe.title.length < 20 ? `${recipe.title}` : `${recipe.title.substring(0, 25)}...`}</h5>
                             <p className="recipes__subtitle">
                                 Ready In: <span>{ recipe.readyInMinutes } mins</span>
                             </p>
                         </div>
+                        <button className="recipe_buttons">View Recipe</button>
                     </div>
               </div>
           );
