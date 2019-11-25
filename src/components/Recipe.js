@@ -10,10 +10,20 @@ class Recipe extends React.Component {
 
     componentDidMount = async() => {
         const id = this.props.match.params.id;
-        const req = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}&`);
-
-        const data = await req.json();
-        this.setState({recipe: data});
+        const json = localStorage.getItem(id);
+        if (json === null){
+            const req = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}&`);
+            const data = await req.json();
+            this.setState({recipe: data});
+        } else {
+            const recipe = JSON.parse(json);
+            this.setState({recipe});
+        }
+    }
+    componentDidUpdate = () => {
+        const id = this.props.match.params.id;
+        const recipe = JSON.stringify(this.state.recipe);
+        localStorage.setItem(id, recipe);
     }
     render() {
         const recipe = this.state.recipe;
