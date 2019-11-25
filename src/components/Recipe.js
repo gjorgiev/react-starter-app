@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const API_KEY = "8ef796dbc4a449fa94f63b4a9128e729";
+const API_KEY = process.env.REACT_APP_API_KEY_SPOONACULAR;
 
 class Recipe extends React.Component {
     state = {
@@ -14,14 +14,12 @@ class Recipe extends React.Component {
 
         const data = await req.json();
         this.setState({recipe: data});
-        console.log(this.state.recipe);
     }
     render() {
         const recipe = this.state.recipe;
         return (
             <div className="container">
-                <div className="active-recipe">
-                    <img className="active-recipe__img" src={recipe.image} alt={recipe.title}/>
+                    <img className="img-fluid" src={recipe.image} alt={recipe.title}/>
                     <h3 className="active-recipe__title">{recipe.title}</h3>
                     <h4 className="active-recipe__publisher">
                         Publisher: <span>{recipe.creditsText}</span>
@@ -29,7 +27,6 @@ class Recipe extends React.Component {
                     <button className="active-recipe__button">
                         <Link to="/">Go Home</Link>
                     </button>
-                </div>
             </div>
         )
     }

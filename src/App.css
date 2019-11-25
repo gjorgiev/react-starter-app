@@ -2,11 +2,6 @@ body {
   background:#f3f3f3;
 }
 
-img {
-  width: 100%;
-  height: 220px;
-}
-
 a {
   color: #e74c3c !important;
 }
@@ -111,8 +106,7 @@ input:-webkit-autofill {
 /******** RECIPE.js ********/
 
 .active-recipe {
-  margin: 0 auto;
-  width: 60%;
+  margin: auto auto;
 }
 
 .active-recipe__img {
