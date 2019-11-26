@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 
 const API_KEY = process.env.REACT_APP_API_KEY_SPOONACULAR;
 
@@ -27,18 +26,36 @@ class Recipe extends React.Component {
     }
     render() {
         const recipe = this.state.recipe;
-        return (
-            <div className="container">
-                    <img className="img-fluid" src={recipe.image} alt={recipe.title}/>
-                    <h3 className="active-recipe__title">{recipe.title}</h3>
-                    <h4 className="active-recipe__publisher">
-                        Publisher: <span>{recipe.creditsText}</span>
-                    </h4>
-                    <button className="active-recipe__button">
-                        <Link to="/">Go Home</Link>
-                    </button>
-            </div>
-        )
+        if (Object.keys(recipe).length !== 0){
+            console.log(recipe);
+            return (
+                <div className="container">
+                        <img className="img-fluid" src={recipe.image} alt={recipe.title}/>
+                        <h3 className="active-recipe__title">{recipe.title}</h3>
+                        <h5>Ingredients</h5>
+                        <ul className="list-group">
+                        {recipe.extendedIngredients.map((ingredient) => {
+                            return (
+                                <li key={ingredient.id} className="list-group-item">
+                                    {ingredient.originalString}
+                                </li>
+                            );
+                        })}
+                        </ul>
+                        <h5>Steps</h5>
+                        <ol className="list-group">
+                        {recipe.analyzedInstructions[0].steps.map((step) => {
+                            return (
+                                <li key={step.number} className="list-group-item">{step.step}</li>
+                            );
+                        })}
+                        </ol>
+                        <h4 className="active-recipe__publisher">
+                            Publisher: <span>{recipe.creditsText}</span>
+                        </h4>
+                </div>
+            )
+        } else return null;
     }
 }
 

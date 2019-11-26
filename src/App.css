@@ -127,7 +127,7 @@ input:-webkit-autofill {
 
 .active-recipe__publisher span {
   text-transform: none;
-  font-weight: 300;
+  font-weight: 150;
   letter-spacing: 2px;
   margin-left: 5px;
 }
