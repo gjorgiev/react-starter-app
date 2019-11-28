@@ -38,7 +38,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Finder Recipes</h1>
+          <h1 className="App-title">That's what she says</h1>
         </header>
         <Form getRecipe={this.getRecipe}/>
         <Recipes recipes={this.state.recipes} />
