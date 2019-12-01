@@ -37,10 +37,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">That's what she says</h1>
-        </header>
-        <Form getRecipe={this.getRecipe}/>
+        <nav className="navbar navbar-light bg-light">
+          <span className="navbar-brand mb-0 h1">
+            <a href="/">
+              <img src={process.env.PUBLIC_URL + '/favicon.ico'} width="45" height="45" alt="finder.recipes logo" />
+              finder.recies
+            </a>
+          </span>
+          <Form getRecipe={this.getRecipe}/>
+        </nav>
         <Recipes recipes={this.state.recipes} />
       </div>
     );
