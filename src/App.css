@@ -3,7 +3,7 @@ body {
 }
 
 a {
-  color: #e74c3c !important;
+  text-decoration: none !important;
 }
 
 button:focus {
@@ -100,6 +100,7 @@ input[type="text"] {
 
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #f3f3f3 inset;
+  box-shadow: 0 0 0 30px #f3f3f3 inset;
   -webkit-text-fill-color: #2c3e50 !important;
 }
 

@@ -41,7 +41,6 @@ class App extends Component {
           <span className="navbar-brand mb-0 h1">
             <a href="/">
               <img src={process.env.PUBLIC_URL + '/favicon.ico'} width="45" height="45" alt="finder.recipes logo" />
-              finder.recies
             </a>
           </span>
           <Form getRecipe={this.getRecipe}/>
