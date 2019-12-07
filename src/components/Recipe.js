@@ -34,21 +34,21 @@ class Recipe extends React.Component {
                         <h3 className="active-recipe__title">{recipe.title}</h3>
                         <h5>Ingredients</h5>
                         <ul className="list-group">
-                        {recipe.extendedIngredients.map((ingredient) => {
+                        {recipe.extendedIngredients !== undefined ? recipe.extendedIngredients.map((ingredient) => {
                             return (
                                 <li key={ingredient.id} className="list-group-item">
                                     {ingredient.originalString}
                                 </li>
                             );
-                        })}
+                        }):"Server did not respond with extended ingredients"}
                         </ul>
                         <h5>Steps</h5>
                         <ol className="list-group">
-                        {recipe.analyzedInstructions[0].steps.map((step) => {
+                        {recipe.analyzedInstructions[0] !== undefined ? recipe.analyzedInstructions[0].steps.map((step) => {
                             return (
                                 <li key={step.number} className="list-group-item">{step.step}</li>
                             );
-                        })}
+                        }):"Server did not respond with analyzed instructions"}
                         </ol>
                         <h4 className="active-recipe__publisher">
                             Publisher: <span>{recipe.creditsText}</span>
